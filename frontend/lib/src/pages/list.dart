@@ -15,7 +15,7 @@ class MyList extends StatefulWidget {
 class _MyListState extends State<MyList> {
   List<Raza> pets = [];
   Future getAll() async {
-    var data = await http.get("http://192.168.88.17:1337/mascots/");
+    var data = await http.get("http://localhost:1337/mascots/");
     var jsonData = json.decode(data.body);
 
     for (var u in jsonData) {

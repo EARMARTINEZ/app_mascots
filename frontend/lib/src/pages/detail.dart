@@ -19,7 +19,7 @@ class _MyDetailState extends State<MyDetail> {
   }
 
   void delete() async {
-    await http.delete("http://192.168.88.17:1337/mascots/${this.pets.id}");
+    await http.delete("http://localhost:1337/mascots/${this.pets.id}");
     Navigator.push(
         context, new MaterialPageRoute(builder: (context) => Home(1, 0)));
   }

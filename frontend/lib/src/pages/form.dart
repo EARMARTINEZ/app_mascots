@@ -22,7 +22,7 @@ class _MyFormState extends State<MyForm> {
   TextEditingController _inputFieldDateController = new TextEditingController();
   Future save() async {
     if (pets.id == 0) {
-      await http.post("http://192.168.88.17:1337/mascots/",
+      await http.post("http://localhost:1337/mascots/",
           headers: <String, String>{
             'Context-Type': 'application/json;charset=UTF-8'
           },
@@ -33,7 +33,7 @@ class _MyFormState extends State<MyForm> {
             'sexo': pets.sexo
           });
     } else {
-      await http.put("http://192.168.88.17:1337/mascots/${pets.id.toString()}",
+      await http.put("http://localhost:1337/mascots/${pets.id.toString()}",
           headers: <String, String>{
             'Context-Type': 'application/json;charset=UTF-8'
           },
@@ -59,7 +59,7 @@ class _MyFormState extends State<MyForm> {
   }
 
   void getOne() async {
-    var data = await http.get("http://192.168.88.17:1337/mascots/${this.id}");
+    var data = await http.get("http://localhost:1337/mascots/${this.id}");
     var u = json.decode(data.body);
     setState(() {
       pets = Pets(u['id'], u['name'], u['edad'], u['raza'], u['sexo']);
@@ -216,7 +216,7 @@ class _MyFormState extends State<MyForm> {
   List razaList;
   String _myRaza;
 
-  String stateInfoUrl = 'http://192.168.88.17:1337/razas/';
+  String stateInfoUrl = 'http://localhost:1337/razas/';
 
   // ignore: missing_return
   Future<List<dynamic>> _getRazaListList() async {
@@ -236,7 +236,7 @@ class _MyFormState extends State<MyForm> {
   List sexoList;
   String _mySexo;
 
-  String saxoInfoUrl = 'http://192.168.88.17:1337/sexos/';
+  String saxoInfoUrl = 'http://localhost:1337/sexos/';
 
   // ignore: missing_return
   Future<List<dynamic>> _getSexoListList() async {
