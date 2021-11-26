@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "razas",
+  "info": {
+    "name": "raza"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    }
+  }
+}

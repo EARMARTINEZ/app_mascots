@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mascots",
+  "info": {
+    "name": "mascot",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "edad": {
+      "type": "date"
+    },
+    "tipo_edad": {
+      "type": "boolean"
+    },
+    "sexo": {
+      "type": "string"
+    },
+    "raza": {
+      "type": "string"
+    }
+  }
+}

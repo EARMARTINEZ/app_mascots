@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_pets_sexos",
+  "info": {
+    "name": "sexo",
+    "icon": "baby",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "model": "sexo"
+    }
+  }
+}

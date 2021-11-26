@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_pets_edads",
+  "info": {
+    "name": "edad",
+    "icon": "child",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "edad": {
+      "type": "date"
+    },
+    "tipo": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "enumeration",
+      "enum": [
+        "exacta",
+        "aproximada"
+      ]
+    }
+  }
+}
