@@ -16,7 +16,10 @@
       "type": "string"
     },
     "edad": {
-      "type": "date"
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
     },
     "tipo_edad": {
       "type": "boolean"
@@ -27,5 +30,6 @@
     "raza": {
       "type": "string"
     }
+    
   }
 }
