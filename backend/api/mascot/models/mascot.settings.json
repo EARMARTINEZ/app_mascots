@@ -13,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "edad": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "fecha": {
       "type": "string"
