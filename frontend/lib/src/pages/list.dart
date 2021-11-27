@@ -13,14 +13,15 @@ class MyList extends StatefulWidget {
 }
 
 class _MyListState extends State<MyList> {
-  List<Raza> pets = [];
+  List<Pets> pets = [];
   Future getAll() async {
     var data = await http.get("http://localhost:1337/mascots/");
     var jsonData = json.decode(data.body);
 
     for (var u in jsonData) {
-      pets.add(Raza(u['id'], u['name'], u['edad']));
-      // pets.add(Pets(u['id'], u['name'], u['edad'], u['raza'], u['sexo']));
+      //pets.add(Raza(u['id'], u['name'], u['edad']));
+      pets.add(Pets(
+          u['id'], u['name'], u['edad'], u['fecha'], u['raza'], u['sexo']));
     }
     return pets;
   }
@@ -41,7 +42,7 @@ class _MyListState extends State<MyList> {
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context, int index) {
                     return ListTile(
-                      title: Text(snapshot.data[index].value),
+                      title: Text(snapshot.data[index].name),
                       subtitle: Text(snapshot.data[index].edad),
                       leading: Icon(Icons.pets),
                       trailing: Icon(Icons.keyboard_arrow_right),

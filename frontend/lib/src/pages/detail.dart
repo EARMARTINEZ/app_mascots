@@ -4,14 +4,14 @@ import '../app.dart';
 import 'package:http/http.dart' as http;
 
 class MyDetail extends StatefulWidget {
-  Raza pets;
+  Pets pets;
   MyDetail(this.pets);
   @override
   _MyDetailState createState() => _MyDetailState(this.pets);
 }
 
 class _MyDetailState extends State<MyDetail> {
-  Raza pets;
+  Pets pets;
   _MyDetailState(this.pets);
   void edit() {
     Navigator.push(
@@ -28,7 +28,7 @@ class _MyDetailState extends State<MyDetail> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(title: Text(pets.value)),
+          appBar: AppBar(title: Text(pets.name)),
           body: Container(
               child: Padding(
             padding: EdgeInsets.all(19.0),
@@ -45,7 +45,7 @@ class _MyDetailState extends State<MyDetail> {
                 Padding(
                   padding: EdgeInsets.all(19),
                   child: Text(
-                    "Name: " + pets.value,
+                    "Name: " + pets.name,
                     style: TextStyle(fontSize: 20),
                   ),
                 ),

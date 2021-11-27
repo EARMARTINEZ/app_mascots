@@ -18,20 +18,20 @@ class MyForm extends StatefulWidget {
 class _MyFormState extends State<MyForm> {
   int id;
   _MyFormState(this.id);
-  Pets pets = Pets(0, '', '', '', '');
+  Pets pets = Pets(0, '', '', '', '', '');
   TextEditingController _inputFieldDateController = new TextEditingController();
   Future save() async {
     if (pets.id == 0) {
-      await http.post("http://localhost:1337/mascots/",
-          headers: <String, String>{
-            'Context-Type': 'application/json;charset=UTF-8'
-          },
-          body: <String, String>{
-            'name': pets.name,
-            'edad': pets.edad,
-            'raza': pets.raza,
-            'sexo': pets.sexo
-          });
+      await http
+          .post("http://localhost:1337/mascots/", headers: <String, String>{
+        'Context-Type': 'application/json;charset=UTF-8'
+      }, body: <String, String>{
+        'name': pets.name,
+        'edad': pets.edad,
+        'fecha': pets.fecha,
+        'raza': pets.raza,
+        'sexo': pets.sexo
+      });
     } else {
       await http.put("http://localhost:1337/mascots/${pets.id.toString()}",
           headers: <String, String>{
@@ -40,6 +40,7 @@ class _MyFormState extends State<MyForm> {
           body: <String, String>{
             'name': pets.name,
             'edad': pets.edad,
+            'fecha': pets.fecha,
             'raza': pets.raza,
             'sexo': pets.sexo
           });
@@ -62,7 +63,8 @@ class _MyFormState extends State<MyForm> {
     var data = await http.get("http://localhost:1337/mascots/${this.id}");
     var u = json.decode(data.body);
     setState(() {
-      pets = Pets(u['id'], u['name'], u['edad'], u['raza'], u['sexo']);
+      pets =
+          Pets(u['id'], u['name'], u['edad'], u['fecha'], u['raza'], u['sexo']);
     });
   }
 
@@ -100,7 +102,7 @@ class _MyFormState extends State<MyForm> {
               enableInteractiveSelection: false,
               controller: _inputFieldDateController,
               onChanged: (val) {
-                pets.edad = val;
+                pets.fecha = val;
               },
               decoration: InputDecoration(
                 hintText: "Fecha de Nacimiento",
@@ -269,6 +271,7 @@ class _MyFormState extends State<MyForm> {
         _fecha = DateFormat('yyyy-MM-dd').format(picked);
         String _fechaString = _fecha.toString();
         _inputFieldDateController.text = _fechaString;
+        pets.fecha = _inputFieldDateController.text;
       });
     }
   }

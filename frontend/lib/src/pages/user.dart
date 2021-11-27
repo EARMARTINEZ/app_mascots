@@ -4,7 +4,8 @@ class Pets {
   String edad;
   String raza;
   String sexo;
-  Pets(this.id, this.name, this.edad, this.raza, this.sexo);
+  String fecha;
+  Pets(this.id, this.name, this.edad, this.fecha, this.raza, this.sexo);
 }
 
 class Raza {
