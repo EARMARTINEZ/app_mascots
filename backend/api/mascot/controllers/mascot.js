@@ -32,9 +32,7 @@ function getEdadApro(dateString) {
     let fechaNacimiento = new Date(dateString) 
     let edad = hoy.getFullYear() - fechaNacimiento.getFullYear() 
    
-    if (
-        dateString != 0 
-      ) {
+    if (dateString != 0 ) {
         var yy = yyyy - dateString
         var today = yy + '-' + mm + '-' + dd;
   
@@ -63,11 +61,14 @@ module.exports = {
       entity = await strapi.services.mascot.create(data, { files });
     } else {   
      
+        if (ctx.request.body.edad != 0 ) {
+           var tipo_edad= true;
+          } else  { tipo_edad= false}
        //console.log(ctx.request.body);
         const pets = {
             "name": ctx.request.body.name,
             "edad": getEdadApro(ctx.request.body.edad),
-            "tipo_edad": false,
+            "tipo_edad": tipo_edad,
             "sexo": ctx.request.body.sexo,
             "raza": ctx.request.body.raza,
             "fecha": ctx.request.body.fecha       
