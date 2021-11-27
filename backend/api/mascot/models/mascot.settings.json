@@ -22,7 +22,8 @@
       "type": "string"
     },
     "tipo_edad": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "sexo": {
       "type": "string"
@@ -30,6 +31,5 @@
     "raza": {
       "type": "string"
     }
-    
   }
 }
